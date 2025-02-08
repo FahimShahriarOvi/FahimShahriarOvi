@@ -3,9 +3,9 @@
 
 ---
 
-- 🔭 I’m currently working on [Eclipsilinus](https://github.com/FahimShahriarOvi/Eclipsilinus)
+- 🔭 I’m currently working on [Vortex](https://github.com/FahimShahriarOvi/Vortex)
 - 🌱 I’m currently learning **Javascript, Ruby**
-- 👯 I’m looking to collaborate on [Eclipsilinus](https://github.com/FahimShahriarOvi/Eclipsilinus)
+- 👯 I’m looking to collaborate on [Vortex](https://github.com/FahimShahriarOvi/Vortex)
 - 📫 How to reach me: **fahimovi2003@gmail.com**
 - ⚡ Fun fact: **Did you know the term 'bug' in programming comes from a moth that caused a malfunction in a 1947 computer? Debugging has been a thing ever since! 🐛💻**
 
