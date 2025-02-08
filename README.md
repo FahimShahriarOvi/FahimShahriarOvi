@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Fahim Shahriar Ovi</h1>
-<h3 align="center">A passionate frontend developer from Bangladesh</h3>
+<h3 align="center">Excited to learn new things</h3>
 
 ---
 
