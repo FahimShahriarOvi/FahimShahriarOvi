@@ -22,9 +22,9 @@
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
-I'm a **CSE graduate** from **East West University** (CGPA: 3.68 / 4.00, Major: Data Science & AI) with a strong foundation in **networking and cybersecurity**. I hold the **Cisco CCNA** certification and have hands-on experience designing secure, enterprise-grade network topologies.
+I'm a **CSE graduate** from **East West University** (Major: Data Science & AI) with a strong foundation in **networking and cybersecurity**. I hold the **Cisco CCNA** certification and have hands-on experience designing secure, enterprise-grade network topologies.
 
-My unique edge is the intersection of **networking depth** and **data science skills** — I can engineer resilient infrastructures *and* apply ML-based analytics for threat detection. I'm planning to pursue a **Master's in Cybersecurity**, focusing on ethical hacking, threat analysis, and enterprise security architecture.
+My unique edge is the intersection of **networking depth** and **data science skills**, I can engineer resilient infrastructures *and* apply ML-based analytics for threat detection. I'm planning to pursue a **Master's in Cybersecurity**, focusing on ethical hacking, threat analysis, and enterprise security architecture.
 
 ---
 
