@@ -1,11 +1,11 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=3000&pause=800&color=22D3EE&center=true&vCenter=true&width=720&lines=Hi+there+%F0%9F%91%8B+I'm+Fahim+Shahriar;Network+Engineer+%7C+Security+Enthusiast;CCNA+Certified+%7C+CSE+Graduate+%40+EWU;Designing+Secure+Network+Infrastructures;Pursuing+Master's+in+Cybersecurity" alt="Typing Animation" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=3000&pause=800&color=22D3EE&center=true&vCenter=true&width=720&lines=Hi+there+%F0%9F%91%8B+I'm+Fahim+Shahriar;Network+Engineer+%7C+Security+Enthusiast;CCNA+In+Progress+%7C+CSE+Graduate+%40+EWU;Designing+Secure+Network+Infrastructures;Pursuing+Master's+in+Cybersecurity" alt="Typing Animation" />
 
 <br />
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/fahim-shahriar-ovi)
-[![Portfolio](https://img.shields.io/badge/Portfolio-22D3EE?style=for-the-badge&logo=safari&logoColor=white)](https://fahimshahriarovi.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-22D3EE?style=for-the-badge&logo=github-pages&logoColor=white)](https://fahimshahriarovi.github.io)
 [![Email](https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:fahimspersonal2004@gmail.com)
 ![Profile Views](https://komarev.com/ghpvc/?username=FahimShahriarOvi&color=22D3EE&style=for-the-badge&label=PROFILE+VIEWS)
 
@@ -22,9 +22,9 @@
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
-I'm a **CSE graduate** from **East West University** (Major: Data Science & AI) with a strong foundation in **networking and cybersecurity**. I hold the **Cisco CCNA** certification and have hands-on experience designing secure, enterprise-grade network topologies.
+I'm a **CSE graduate** from **East West University** (Major: Data Science & AI) with a strong interest in **networking and cybersecurity**. I am currently working on the **Cisco CCNA** certification and have hands-on experience designing secure, enterprise-grade network topologies.
 
-My unique edge is the intersection of **networking depth** and **data science skills**, I can engineer resilient infrastructures *and* apply ML-based analytics for threat detection. I'm planning to pursue a **Master's in Cybersecurity**, focusing on ethical hacking, threat analysis, and enterprise security architecture.
+My unique edge is the intersection of **networking depth** and **data science skills** — I can engineer resilient infrastructures *and* apply ML-based analytics for threat detection. I'm planning to pursue a **Master's in Cybersecurity**, focusing on ethical hacking, threat analysis, and enterprise security architecture.
 
 ---
 
@@ -91,7 +91,17 @@ My unique edge is the intersection of **networking depth** and **data science sk
 
 Architected a **multi-department campus network topology** for 100+ end-devices with full routing, DHCP, and NAT configuration. Deployed a centralized DHCP, DNS, and Web server across all campuses and delivered a technical report with a risk assessment.
 
-[![View on GitHub](https://img.shields.io/badge/View%20on%20GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FahimShahriarOvi)
+[![View on GitHub](https://img.shields.io/badge/View%20on%20GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FahimShahriarOvi/project-university-network)
+
+### 🏗️ RAG-Based Laptop Recommendation Expert System
+> *Apache Spark, FAISS, RAG/LLM, FastAPI, Python, Flutter — September 2026*
+
+Built a web-based conversational RAG system that recommends laptops from stated budget, use-case, and spec
+requirements, grounded via a Retrieval-Augmented Generation pipeline. Implemented a distributed Apache Spark pipeline for data cleaning, MinHash/LSH near-duplicate detection,
+text chunking, and embedding generation, and built/benchmarked multiple FAISS index types (Flat, IVF, PQ,
+HNSW) for retrieval accuracy vs. latency trade-offs.
+
+[![View on GitHub](https://img.shields.io/badge/View%20on%20GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FahimShahriarOvi/RAGTop)
 
 ---
 
@@ -99,7 +109,7 @@ Architected a **multi-department campus network topology** for 100+ end-devices 
 
 | Certification | Issuer | Status |
 |:---|:---|:---|
-| 🏆 **Cisco CCNA** — Routing, Switching & Security | Cisco | ✅ Completed |
+| 🔄 **Cisco CCNA** — Routing, Switching & Security | Cisco | 🟡 In Progress |
 | 🎓 **Master's in Cybersecurity** | (Planned) | 🔄 In Progress |
 
 ---
@@ -107,7 +117,7 @@ Architected a **multi-department campus network topology** for 100+ end-devices 
 ## `$ cat education.log`
 
 ```
-[Oct 2022 → Sep 2026]  B.Sc. in CSE · Major: Data Science  ·  CGPA: 3.68/4.00
+[Oct 2022 → Sep 2026]  B.Sc. in CSE · Major: Data Science  
                         East West University · Dhaka, Bangladesh
                         ── Computer Networks · Network Security · Cryptography
                         ── Data Structures · Machine Learning · AI · OOP

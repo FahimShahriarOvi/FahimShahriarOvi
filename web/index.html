@@ -95,10 +95,72 @@
       height: 100%;
     }
 
-    .hero-content {
+    /* Hero two-column layout */
+    .hero-inner {
       position: relative;
       z-index: 2;
-      max-width: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 3rem;
+    }
+
+    .hero-content {
+      max-width: 560px;
+    }
+
+    /* Hero photo */
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+
+    .hero-photo-frame {
+      width: 265px;
+      height: 300px;
+      border-radius: 18px;
+      border: 2px solid rgba(34,211,238,0.4);
+      background: var(--navy3);
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+        0 0 0 5px rgba(34,211,238,0.05),
+        0 0 50px rgba(34,211,238,0.14),
+        0 0 100px rgba(124,58,237,0.08);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .hero-photo.hidden { display: none; }
+
+    .hero-photo-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      background: linear-gradient(160deg, var(--navy3) 0%, var(--navy2) 100%);
+    }
+
+    .hero-photo-fallback svg { opacity: 0.45; }
+
+    .hero-photo-hint {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.58rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 0 1rem;
+      line-height: 1.6;
     }
 
     .hero-tag {
@@ -246,9 +308,60 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr auto;
       gap: 4rem;
       align-items: center;
+    }
+
+    /* Profile photo */
+    .about-photo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .photo-frame {
+      width: 200px;
+      height: 220px;
+      border-radius: 14px;
+      border: 2px solid rgba(34,211,238,0.35);
+      background: var(--navy3);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 40px rgba(34,211,238,0.1), 0 0 0 4px rgba(34,211,238,0.06);
+      flex-shrink: 0;
+    }
+
+    .about-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .about-photo.hidden { display: none; }
+
+    .photo-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, var(--navy3) 0%, var(--navy2) 100%);
+    }
+
+    .photo-fallback svg { opacity: 0.5; }
+
+    .photo-hint {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+      max-width: 180px;
     }
 
     .about-text p {
@@ -458,6 +571,33 @@
 
     .github-icon-wrap:hover { border-color: var(--cyan); color: var(--cyan); }
 
+    /* Stack multiple project cards */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* AI / Data-Science project — violet accent */
+    .project-card--ai {
+      border-color: rgba(124,58,237,0.2);
+    }
+
+    .project-card--ai:hover {
+      border-color: rgba(124,58,237,0.42);
+    }
+
+    .project-card--ai .project-meta       { color: #A78BFA; }
+    .project-card--ai .project-bullets li::before { color: #A78BFA; }
+
+    .stack-tag--ai {
+      background: rgba(124,58,237,0.08);
+      color: #A78BFA;
+      border: 1px solid rgba(124,58,237,0.22);
+    }
+
+    .github-icon-wrap--ai:hover { border-color: #A78BFA; color: #A78BFA; }
+
     /* ── CERTIFICATIONS & EDUCATION ── */
     #cert-edu { background: var(--navy); }
 
@@ -528,6 +668,12 @@
       background: rgba(124,58,237,0.12);
       color: #A78BFA;
       border-color: rgba(124,58,237,0.25);
+    }
+
+    .cert-badge.ongoing {
+      background: rgba(251,191,36,0.1);
+      color: #FCD34D;
+      border-color: rgba(251,191,36,0.3);
     }
 
     /* Timeline */
@@ -677,8 +823,15 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-photo-frame { width: 200px; height: 225px; }
+    }
+
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; padding-top: 5rem; }
+      .hero-photo-wrap { align-self: center; }
+      .hero-photo-frame { width: 160px; height: 180px; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .two-col { grid-template-columns: 1fr; }
       .project-card { grid-template-columns: 1fr; }
@@ -709,22 +862,45 @@
 <section id="hero">
   <canvas id="network-canvas"></canvas>
 
-  <div class="hero-content">
-    <p class="hero-tag">// network engineer &amp; security enthusiast</p>
-    <h1 class="hero-name">
-      Fahim<br /><span>Shahriar</span>
-    </h1>
-    <p class="hero-title">
-      CCNA Certified · CSE Graduate · Dhaka, Bangladesh
-    </p>
-    <p class="hero-bio">
-      I design secure, resilient network infrastructures and bring a data-science lens to cybersecurity challenges. Pursuing a Master's in Cybersecurity to specialise in threat analysis and enterprise security architecture.
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-      <a href="https://linkedin.com/in/fahim-shahriar-ovi" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
+  <div class="hero-inner">
+
+    <div class="hero-content">
+      <p class="hero-tag">// network engineer &amp; security enthusiast</p>
+      <h1 class="hero-name">
+        Fahim<br /><span>Shahriar</span>
+      </h1>
+      <p class="hero-title">
+        CCNA In Progress · CSE Graduate · Dhaka, Bangladesh
+      </p>
+      <p class="hero-bio">
+        I design secure, resilient network infrastructures and bring a data-science lens to cybersecurity challenges. Pursuing a Master's in Cybersecurity to specialise in threat analysis and enterprise security architecture.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        <a href="https://linkedin.com/in/fahim-shahriar-ovi" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
     </div>
+
+    <!-- Profile photo — right side of hero -->
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img
+          src="..\pic\image.png"
+          alt="Fahim Shahriar"
+          class="hero-photo"
+          onerror="this.classList.add('hidden'); document.getElementById('hero-fallback').style.display='flex';"
+        />
+        <div class="hero-photo-fallback" id="hero-fallback" style="display:none">
+          <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="37" r="23" fill="rgba(34,211,238,0.22)" stroke="rgba(34,211,238,0.45)" stroke-width="1.5"/>
+            <path d="M8 92 Q8 66 50 66 Q92 66 92 92" fill="rgba(34,211,238,0.15)" stroke="rgba(34,211,238,0.3)" stroke-width="1.5"/>
+          </svg>
+          <p class="hero-photo-hint">Add profile.jpg to your<br/>GitHub repo folder</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="hero-scroll">
@@ -739,12 +915,13 @@
     <p class="section-label">// about me</p>
     <h2 class="section-heading">Building networks.<br />Breaking barriers.</h2>
     <div class="about-grid">
+
       <div class="about-text">
         <p>
           I'm a CSE graduate from <strong>East West University</strong>, where I majored in Data Science &amp; AI while developing a deep passion for networking and cybersecurity. My academic journey gave me a rare combination: the ability to engineer network infrastructure and apply machine-learning techniques for security analytics.
         </p>
         <p>
-          After earning my <strong>Cisco CCNA</strong>, I architected a multi-department campus network for 100+ devices as a capstone project — designing the routing, DHCP, DNS, and NAT topology from scratch and documenting a full risk assessment.
+          Currently working towards my <strong>Cisco CCNA</strong> certification, I've already put that knowledge to use — architecting a multi-department campus network for 100+ devices as a course project, designing the routing, DHCP, DNS, and NAT topology from scratch and documenting a full risk assessment.
         </p>
         <p>
           I'm now preparing to pursue a <strong>Master's in Cybersecurity</strong>, where I want to go deeper into ethical hacking, threat modelling, and enterprise security architecture.
@@ -757,7 +934,7 @@
         </div>
         <div class="stat-card">
           <div class="stat-value">CCNA</div>
-          <div class="stat-label">Cisco Certified</div>
+          <div class="stat-label">In Progress</div>
         </div>
         <div class="stat-card">
           <div class="stat-value">100+</div>
@@ -869,35 +1046,71 @@
     <p class="section-label">// projects</p>
     <h2 class="section-heading">Things I've built.</h2>
 
-    <div class="project-card">
-      <div>
-        <p class="project-meta">September 2025 — Network Infrastructure</p>
-        <h3 class="project-title">Secure Campus Network Design</h3>
-        <p class="project-desc">
-          Designed and simulated a full enterprise-grade campus network topology in Cisco Packet Tracer, covering 100+ end-devices across multiple departments.
-        </p>
-        <ul class="project-bullets">
-          <li>Architected a multi-department topology with OSPF routing, DHCP addressing, and NAT for internet access.</li>
-          <li>Deployed a centralised DHCP, DNS, and Web server serving all campus segments.</li>
-          <li>Documented the full network design and produced a technical risk assessment report.</li>
-        </ul>
-        <div class="project-stack">
-          <span class="stack-tag">Cisco Packet Tracer</span>
-          <span class="stack-tag">OSPF</span>
-          <span class="stack-tag">DHCP</span>
-          <span class="stack-tag">NAT</span>
-          <span class="stack-tag">DNS</span>
-          <span class="stack-tag">Risk Assessment</span>
+    <div class="projects-list">
+
+      <!-- Card 1: Networking -->
+      <div class="project-card">
+        <div>
+          <p class="project-meta">September 2025 — Course Project</p>
+          <h3 class="project-title">Secure Campus Network Design</h3>
+          <p class="project-desc">
+            Designed and simulated a full enterprise-grade campus network topology in Cisco Packet Tracer, covering 100+ end-devices across multiple departments.
+          </p>
+          <ul class="project-bullets">
+            <li>Architected a multi-department topology with OSPF routing, and DHCP addressing.</li>
+            <li>Deployed a centralised DHCP, DNS, and Web server serving all campus segments.</li>
+            <li>Documented the full network design and produced a technical risk assessment report.</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-tag">Cisco Packet Tracer</span>
+            <span class="stack-tag">OSPF</span>
+            <span class="stack-tag">DHCP</span>
+            <span class="stack-tag">DNS</span>
+          </div>
+        </div>
+        <div class="project-github">
+          <a href="https://github.com/FahimShahriarOvi" class="github-icon-wrap" target="_blank" rel="noopener" title="View on GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+          <span style="font-size:0.65rem; color: var(--muted); font-family: 'JetBrains Mono', monospace;">GitHub</span>
         </div>
       </div>
-      <div class="project-github">
-        <a href="https://github.com/FahimShahriarOvi" class="github-icon-wrap" target="_blank" rel="noopener" title="View on GitHub">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-        </a>
-        <span style="font-size:0.65rem; color: var(--muted); font-family: 'JetBrains Mono', monospace;">GitHub</span>
+
+      <!-- Card 2: RAG / AI -->
+      <div class="project-card project-card--ai">
+        <div>
+          <p class="project-meta">September 2026 — Capstone Project</p>
+          <h3 class="project-title">RAG-Based Laptop Recommendation Expert System</h3>
+          <p class="project-desc">
+            A conversational AI system that recommends laptops based on budget, use-case, and spec requirements, powered by a Retrieval-Augmented Generation pipeline with a Flutter front-end and FastAPI back-end.
+          </p>
+          <ul class="project-bullets">
+            <li>Built a distributed Apache Spark pipeline for data cleaning, MinHash/LSH near-duplicate detection, text chunking, and embedding generation.</li>
+            <li>Designed and benchmarked multiple FAISS index types (Flat, IVF, PQ, HNSW) to evaluate retrieval accuracy vs. latency trade-offs.</li>
+            <li>Integrated an LLM via RAG for grounded, conversational responses to natural-language hardware queries.</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-tag stack-tag--ai">Apache Spark</span>
+            <span class="stack-tag stack-tag--ai">FAISS</span>
+            <span class="stack-tag stack-tag--ai">RAG / LLM</span>
+            <span class="stack-tag stack-tag--ai">FastAPI</span>
+            <span class="stack-tag stack-tag--ai">Python</span>
+            <span class="stack-tag stack-tag--ai">Flutter</span>
+            <span class="stack-tag stack-tag--ai">MinHash / LSH</span>
+          </div>
+        </div>
+        <div class="project-github">
+          <a href="https://github.com/FahimShahriarOvi/RAGTop" class="github-icon-wrap github-icon-wrap--ai" target="_blank" rel="noopener" title="View on GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+          <span style="font-size:0.65rem; color: var(--muted); font-family: 'JetBrains Mono', monospace;">GitHub</span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -918,7 +1131,7 @@
             <div class="cert-title">Cisco CCNA</div>
             <div class="cert-sub">Routing, Switching &amp; Network Security</div>
           </div>
-          <span class="cert-badge">Completed</span>
+          <span class="cert-badge ongoing">In Progress</span>
         </div>
         <div class="cert-card">
           <div class="cert-icon" style="background:rgba(124,58,237,0.12)">🎓</div>
@@ -987,7 +1200,6 @@
           GitHub
         </a>
       </div>
-      <p class="contact-email">fahimspersonal2004@gmail.com</p>
     </div>
   </div>
 </section>
